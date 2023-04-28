@@ -41,3 +41,11 @@ class Streake {
   }
 }
 new Streake().ShowStreak();
+
+const btn = document.getElementById("btn")! as HTMLButtonElement;
+
+btn.addEventListener("click", () => {
+  if (btn.textContent === "Add strike") {
+    console.log("button clicked");
+  }
+});
