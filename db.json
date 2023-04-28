@@ -1,19 +1,14 @@
 {
   "streak": [
     {
-      "id": 1,
-      "streakTask": "Quite smoking",
-      "time": "10"
+      "streak_text": "test",
+      "streak_date": "2023-04-29",
+      "id": 6
     },
     {
-      "id": 2,
-      "streakTask": "Going to gym",
-      "time": "30"
-    },
-    {
-      "id": 3,
-      "streakTask": "Eating healthy",
-      "time": "26"
+      "streak_text": "java",
+      "streak_date": "2023-04-10",
+      "id": 7
     }
   ]
 }

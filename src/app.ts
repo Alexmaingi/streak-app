@@ -1,7 +1,9 @@
+let streak_text = document.getElementById("streak_text");
+let streak_date = document.getElementById("streak_date");
 interface streak {
   id: number;
-  streakTask: string;
-  time: number;
+  streak_text: string;
+  streak_date: string;
 }
 
 class Streake {
@@ -16,9 +18,9 @@ class Streake {
       console.log(streaker);
       html += `
        <div class="content-streak" key=${streaker.id}>
-       <h1>${streaker.streakTask}</h1>
+       <h1>${streaker.streak_text}</h1>
 
-       <h2>Its been ${streaker.time}days</h2>
+       <h2>Its been ${streaker.streak_date}days</h2>
      </div>
   
        `;
@@ -27,10 +29,8 @@ class Streake {
     app.innerHTML = html;
   }
 
-  static async addStreak() {
-    // const newPhoto= Photos.readValue()
-    // console.log(newPhoto);
-    const newStreak = { time: Date, streakTask: String };
+  async addStreak() {
+    const newStreak = readValues();
     await fetch("http://localhost:3000/streak", {
       method: "POST",
       body: JSON.stringify(newStreak),
@@ -41,11 +41,18 @@ class Streake {
   }
 }
 new Streake().ShowStreak();
+let streak = new Streake();
 
-const btn = document.getElementById("btn")! as HTMLButtonElement;
+const btn = document.querySelector("#btn");
 
-btn.addEventListener("click", () => {
-  if (btn.textContent === "Add strike") {
-    console.log("button clicked");
-  }
-});
+btn?.addEventListener("click", streak.addStreak);
+
+function readValues() {
+  let streak_text = (
+    document.querySelector("#streak_text")! as HTMLInputElement
+  ).value;
+  let streak_date = (
+    document.querySelector("#streak_date")! as HTMLInputElement
+  ).value;
+  return { streak_text, streak_date };
+}
